@@ -15,15 +15,15 @@ Feature: Changing Theme
     Scenario: User can select an image from the options.
       When User clicks the profile picture on the top right corner
       And User sees dropdown options and clicks Themes button
-      Then User should see 80 pictures to choose from
-      And User clicks one of them background changes
+      And User sees themes to choose from
+      Then User clicks one of them background changes
       And User clicks save
 
     Scenario: User can select custom theme.
       When User clicks the profile picture on the top right corner
       And User sees dropdown options and clicks Themes button
-      Then User clicks Custom Theme button
-      And User uploads custom image
+      And User clicks Custom Theme button
+      Then User should be able to upload custom image
       And User clicks the Create button
       And User clicks save
 

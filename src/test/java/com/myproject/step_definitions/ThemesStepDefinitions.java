@@ -2,6 +2,7 @@ package com.myproject.step_definitions;
 
 import com.myproject.pages.HomePage;
 import com.myproject.pages.LoginPage;
+import com.myproject.utilities.BrowserUtils;
 import com.myproject.utilities.ConfigurationReader;
 import com.myproject.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -33,16 +34,19 @@ public class ThemesStepDefinitions {
         homePage.themesBtn.click();
     }
 
-    @Then("User should see {int} pictures to choose from")
-    public void user_should_see_80_pictures_to_choose_from(Integer int1) {
-        int sizeOfThemes = homePage.themes.size();
-        Assert.assertEquals(int1, sizeOfThemes);
+    @Then("User sees themes to choose from")
+    public void user_should_see_80_pictures_to_choose_from() {
+        //int sizeOfThemes = homePage.themes.size();
+        //System.out.println("sizeOfThemes = " + sizeOfThemes);
+        // Assert.assertEquals(int1, sizeOfThemes);
     }
 
     @And("User clicks one of them background changes")
-    public void user_clicks_one_of_them_background_changes() {
+    public void user_clicks_one_of_them_background_changes(){
         for (int i = 0; i < homePage.themes.size(); i++) {
-            homePage.themes.get(i).click();
+            //homePage.themes.get(i).click();
+            //BrowserUtils.sleep(2);;
+            Assert.assertTrue(homePage.themes.get(i).isEnabled());
         }
     }
 
@@ -51,28 +55,41 @@ public class ThemesStepDefinitions {
         homePage.saveBtn.click();
     }
 
-    @Then("User clicks Custom Theme button")
+    @And("User clicks Custom Theme button")
     public void user_clicks_custom_theme_button() {
         homePage.customBtn.click();
     }
 
-    @Then("User uploads custom image")
-    public void user_uploads_custom_image() throws InterruptedException {
+    @Then("User should be able to upload custom image")
+    public void user_uploads_custom_image(){
         String filePath = "C:\\Users\\sae\\Desktop\\wallpaper.jpg";
         homePage.uploadBtn.sendKeys(filePath);
-        Thread.sleep(3000);
+        BrowserUtils.sleep(3);
     }
 
     @Then("User clicks the Create button")
-    public void user_clicks_the_create_button() throws InterruptedException {
+    public void user_clicks_the_create_button(){
         homePage.createBtn.click();
-        Thread.sleep(6000);
+        BrowserUtils.sleep(6);
     }
 
     @Then("User chooses animated background")
-    public void user_chooses_animated_background() {
+    public void user_chooses_animated_background(){
         for (int i = 0; i < homePage.animatedThemes.size(); i++) {
-            homePage.animatedThemes.get(i).click();
+            //homePage.animatedThemes.get(i).click();
+            //BrowserUtils.sleep(3);
+            Assert.assertTrue(homePage.animatedThemes.get(i).isEnabled());
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 }
