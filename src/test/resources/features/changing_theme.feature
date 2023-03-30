@@ -1,3 +1,4 @@
+@APCRM-451
 Feature: Changing Theme
 
   US:
@@ -12,13 +13,16 @@ Feature: Changing Theme
   Background: for these scenarios in this feature file, user is expected to be on the login page
     Given user is already on homepage
 
+    @APCRM-446
     Scenario: User can select an image from the options.
+
       When User clicks the profile picture on the top right corner
       And User sees dropdown options and clicks Themes button
       And User sees themes to choose from
       Then User clicks one of them background changes
       And User clicks save
 
+    @APCRM-447
     Scenario: User can select custom theme.
       When User clicks the profile picture on the top right corner
       And User sees dropdown options and clicks Themes button
@@ -27,6 +31,7 @@ Feature: Changing Theme
       And User clicks the Create button
       And User clicks save
 
+    @APCRM-448
     Scenario: User can use animated background
       When User clicks the profile picture on the top right corner
       And User sees dropdown options and clicks Themes button
